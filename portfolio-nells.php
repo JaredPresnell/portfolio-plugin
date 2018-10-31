@@ -22,6 +22,9 @@ function portfolio_enqueue(){
 	if(is_page_template('page-portfolio.php'))
 	{
 		wp_enqueue_style( 'portfolio-css', plugin_dir_url(__FILE__) . 'css/style.min.css', array(), '1.0.0', 'all' );
+
+		wp_register_script( 'portfolio_script', plugin_dir_url(__FILE__) . 'js/portfolio-script.js', array('jquery'),'1.0.0',true );
+		wp_enqueue_script('portfolio_script');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'portfolio_enqueue' );

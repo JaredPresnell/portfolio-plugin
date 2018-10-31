@@ -49,6 +49,7 @@
 										) 
 									);
 								?>	
+								<div class="portfolio_modal_hide"></div>
 								<div class="portfolio_pieces row">
 									<?php
 									if( $wp_query->have_posts() ):

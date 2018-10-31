@@ -1,4 +1,19 @@
 @import 'base/mixins';	
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
 $electric: #33ffff;
 $text-color: #fff;
 $acolor:#00ffee;
@@ -84,7 +99,7 @@ $scheme5: #8860d0;
 .portfolio_tag_description{
 	//visibility: hidden;
 	opacity:0;
-	@include animate(opacity, 1000ms);
+	@include animate(opacity, 500ms);
     width: 200px;
     background-color: #888;
     color: #fff;
@@ -99,15 +114,13 @@ $scheme5: #8860d0;
 	box-shadow: 0 0 1px 1px #888;
 
 }
+
 .portfolio_tag_group{
-	&:hover,
-	&:active,
-	&:focus
-	&:target{
+	&:hover
+	{
 		.portfolio_tag_description {
-			@include animate(opacity, 1000ms);
 			opacity:1;
-			z-index:1;
+			z-index:2;
 			cursor:default;
 		} 
 	}
@@ -116,4 +129,14 @@ $scheme5: #8860d0;
 
 .portfolio_pieces{
 	padding-bottom:200px;
+}
+
+.portfolio_modal_hide{
+	position:absolute;
+	left:0;
+	top:0;
+	opacity:0;
+	height:100%;
+	width:100%;
+	z-index:-9;
 }
